@@ -1,24 +1,30 @@
 const sumAll = function(start, end) {
 
-    if (start.isInteger() || end.isInteger()) {
-        
+    if (!Number.isInteger(start) ||
+        !Number.isInteger(end)  ||
+        start < 0 || end < 0){
+        return "ERROR";
     };
 
-    counter = end;
+    sum = 0;
     
     if (start > end) {
         counter = start;
-    }
-    
-    sum = 0;
+        while (counter >= end) {
+            sum += counter;
+            counter--;
+        }
 
-    while (counter >= start) {
-        sum += counter;
-        counter--;
+    } else {
+        counter = end;
+        while (counter >= start) {
+            sum += counter;
+            counter--;
+        }
     }
 
     return sum;
-    
+
 };
 
 // Do not edit below this line
